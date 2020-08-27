@@ -6,3 +6,34 @@ a{
 ul{
     list-style: none;
 }
+
+input[type=text]{
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border 0.2s;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+.Gifs{
+    display: grid;
+    column-width: 100%;
+    grid-template-columns: 2;
+}
+
+.Gifs div:first-child{
+    text-align: start;
+    grid-column: 2;
+}
+
+.Gifs div:last-child{
+    grid-column: 2;
+}
+
+@media (min-width: 800px){
+    .Gifs div:first-child{
+    grid-column: 1;
+    }
+}

@@ -1,15 +1,25 @@
-.Gif {
-    border: 1px solid #eee;
-    border-radius: 6px;
-    color: #fff;
-    text-decoration: none;
-    margin: 6px;
-    display: flex;
-    flex-direction: column;
-    padding: 12px;
-    width: 100%;
+.Gif{
+    cursor: pointer;
 }
 
 .Gif img{
-    object-fit: contain;
+    width: 100%;
+    max-width: 85vh ;
+}
+
+.Gif:hover h4{
+    color: orange;
+}
+
+.Gif div{
+    position: relative;
+}
+
+.Gif h4 {
+    background: rgba(0, 0, 0, .3);
+    bottom: 0px;
+    font-size: 12px;
+    color: #fff;
+    margin: 0;
+    position: absolute;
 }
