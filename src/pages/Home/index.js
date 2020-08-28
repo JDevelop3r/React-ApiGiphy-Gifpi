@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'wouter';
 
 import './home.css';
-import ListOfGifs from '../../components/ListOfGifs/ListOfGifs';
+import ListOfGifs from 'components/ListOfGifs/ListOfGifs';
 import useGifs from '../../hooks/useGifs';
 import Trends from '../../components/Trends/Trends';
 
@@ -25,7 +25,8 @@ export default function Home(){
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input onChange={handleChange} type="text" value={keyword} />
+        <input onChange={handleChange} type="text" value={keyword} placeholder="Busca un gif..." />
+        <button>Buscar</button>
       </form>
       <div className="Gifs">
         <div>

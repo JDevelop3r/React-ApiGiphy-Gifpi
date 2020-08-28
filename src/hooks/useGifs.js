@@ -15,7 +15,7 @@ export default function useGifs ({ keyword } = { keyword: null }){
           .then(gifs => {
               setGifs(gifs);
               setLoading(false);
-              localStorage.setItem('lastKeyword', keyword);
+              if (keyword) localStorage.setItem('lastKeyword', keyword);
           })
   }, [keyword])
 

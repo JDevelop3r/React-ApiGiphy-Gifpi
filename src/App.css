@@ -3,6 +3,7 @@
 .Gifpi{
   font-family: 'Permanent Marker', cursive;
   cursor: pointer;
+  margin: .3em;
 }
 
 .App {
@@ -10,17 +11,16 @@
 }
 
 .App-content {
-  background-color: #244c9b;
+  background-color: rgb(20, 20, 20);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
-  padding: 16px;
+  padding-left: 16px;
 }
 
-.App-logo{
-  width: 5%;
+.App-title{
+  margin: .1em;
 }
