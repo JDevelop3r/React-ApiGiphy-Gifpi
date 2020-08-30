@@ -1,34 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'wouter';
+import React, {Suspense} from "react";
 
-import './styles.css';
-import getTrendingTerms from 'services/getTrendingTerms';
-import useNearScreen from 'hooks/useNearScreen';
+import "./styles.css";
+import useNearScreen from "hooks/useNearScreen";
+import Spinner from '../Spinner/Spinner';
 
-export function Trends(){
-    const [trends, setTrends] = useState([]);
+const Trends = React.lazy(
+  () => import('./TrendingSearches')
+);
 
-    useEffect(function () {
-      getTrendingTerms()
-        .then(setTrends);
-    }, [])
-
-    return <>
-        <h3 className='App-title'>Tendencias</h3>
-        <ul>
-            {trends.map((popularGif) => (
-              <li key={popularGif}>
-                <Link to={`/search/${popularGif}`}>Gifs de {popularGif}</Link>
-              </li>                
-            ))}
-          </ul>
-    </>
-}
-
-export default function LazyTrending(){
-  const {isNearScreen, fromRef} = useNearScreen();
+export default function LazyTrending() {
+  const { isNearScreen, fromRef } = useNearScreen();
 
   return <div ref={fromRef}>
-      {isNearScreen ? <Trends /> : null}
-    </div>
+    <Suspense fallback={<Spinner />}>
+      {isNearScreen ? <Trends /> : <Spinner />}
+    </Suspense>
+  </div>;
 }

@@ -3,7 +3,7 @@
 .Gifpi{
   font-family: 'Permanent Marker', cursive;
   cursor: pointer;
-  margin: .3em;
+  margin: 0 .3em .3em;
 }
 
 .App {
@@ -13,8 +13,6 @@
 .App-content {
   background-color: rgb(20, 20, 20);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;

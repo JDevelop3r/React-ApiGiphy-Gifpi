@@ -7,20 +7,22 @@ import useGifs from '../../hooks/useGifs';
 
 export default function SearchResults({ params }){
     const { keyword } = params;
-    const { loading, gifs } = useGifs({ keyword });
-    /*  = keyword.filter(l => l != '%' && l != '2' && l != '0') */
+    const { loading, gifs, setPage, loadingNextPage } = useGifs({ keyword });
+
+    const handleNextPage = () => {
+        setPage(prevPage => prevPage + 1)
+    }
+
     return <> 
         {loading
             ?<Spinner/>
-            :(<div className="Gifs">
-                <div>
-                    <h3 className='App-title'>{ decodeURI(keyword.toUpperCase()) }</h3>
-                    <ListOfGifs gifs={gifs}/>
-                </div>
-                <div>
-                    <Trends />
-                </div>
-            </div>)
-        }  
+            :(<>
+                <h3 className='App-title'>{ decodeURI(keyword.toUpperCase()) }</h3>
+                <ListOfGifs gifs={gifs}/>
+                <br />
+                <button onClick={handleNextPage}>Next page</button>
+            </>
+            )
+        }
     </>
 }
