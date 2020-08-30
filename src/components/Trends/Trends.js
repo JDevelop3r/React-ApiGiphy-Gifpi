@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 
 import './styles.css';
-import getTrendingTerms from '../../services/getTrendingTerms';
+import getTrendingTerms from 'services/getTrendingTerms';
+import useNearScreen from 'hooks/useNearScreen';
 
-export default function Trends(){
+export function Trends(){
     const [trends, setTrends] = useState([]);
 
     useEffect(function () {
@@ -22,4 +23,12 @@ export default function Trends(){
             ))}
           </ul>
     </>
+}
+
+export default function LazyTrending(){
+  const {isNearScreen, fromRef} = useNearScreen();
+
+  return <div ref={fromRef}>
+      {isNearScreen ? <Trends /> : null}
+    </div>
 }
